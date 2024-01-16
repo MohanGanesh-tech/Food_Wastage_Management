@@ -1,0 +1,85 @@
+{% load static %}
+{% static "img" as baseUrl %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Food waste predicter</title>
+
+    <!--cdn-->
+    <script src="https://cdn.rawgit.com/atatanasov/gijgo/master/dist/combined/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://cdn.rawgit.com/atatanasov/gijgo/master/dist/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'vendor/jquery/jquery-1.11.1.min.js'%}"></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/font/font-awesome.css'%}">
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+    
+
+
+    <!--costum-->
+    <script src="{% static 'radioclickshow.js'%}"></script>
+    
+  </head>
+  <body>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+  <br>
+  <h3 style="text-align: center; color: orange">Food management</h3>
+</div>
+
+
+<div class="container">
+<br>  
+<hr>
+
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          
+          {% for message in messages %}
+          <h5 style="color: brown; text-align: center;">{{message}}</h5>
+          {% endfor %}
+        <header class="card-header">
+          <h4 class="card-title mt-2">Food Details Entry</h4>
+        </header>
+        <article class="card-body">
+
+        <form action="addfoodlist" method="POST">
+          {% csrf_token %}
+          
+
+
+          <div class="form-group">
+            <label>Food name:</label><br>
+              <input type="text" class="form-control" name="foodname" placeholder="Type event name">
+          </div> <!-- form-group end.// -->
+       
+          <div class="form-group">
+            <input type="submit" class="btnSubmit" value="submit" />
+          </div>
+                                                  
+        </form>
+        </article> <!-- card-body end .// -->
+
+        <!--<div class="border-top card-body text-center"> footer of form </div>-->
+
+        </div> <!-- card.// -->
+      </div> <!-- col.//-->
+    </div> <!-- row.//-->
+</div> 
+<!--container end.//-->
+
+
+
+  </body>
+</html>

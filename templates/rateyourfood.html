@@ -1,0 +1,132 @@
+{% load static %}
+{% static "img" as baseUrl %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Food waste predicter</title>
+
+    <!--cdn-->
+    <script src="https://cdn.rawgit.com/atatanasov/gijgo/master/dist/combined/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://cdn.rawgit.com/atatanasov/gijgo/master/dist/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'vendor/jquery/jquery-1.11.1.min.js'%}"></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/font/font-awesome.css'%}">
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+    
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!--costum-->
+    <script src="{% static 'radioclickshow.js'%}"></script>
+    <script src="{% static 'staring.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'staring.css'%}">
+  </head>
+  <body>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+  <br>
+  <h3 style="text-align: center; color: orange">Food management</h3>
+</div>
+
+
+<div class="container">
+<br>  
+<hr>
+
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+        <header class="card-header">
+          <h4 class="card-title mt-2">Food Details Entry</h4>
+          {% for message in messages %}
+          <h5 style="color: brown; text-align: center;">{{message}}</h5>
+          {% endfor %}
+        </header>
+        <article class="card-body">
+
+        <form action="/rateyourfood/" method="POST">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="col form-group">
+            <label>Date:</label><br>
+            <input type="date" id="date" name="date">
+            </div> <!-- form-group end.// -->
+
+
+            <div class="col form-group">
+              <label>Food Name:</label>
+              <select id="foodname" name="foodname" class="form-control">
+                  <option selected=""></option>
+                  {% for food in foodlists%}
+                    <option>{{food.foodname}}</option>
+                  {% endfor %}
+              </select>
+            </div><!-- form-group end.// -->
+          </div> <!-- form-row end.// -->
+          
+       
+          <div class="form-group">
+            <label>Review the food:</label><br>
+              <input type="text" class="form-control" name="desc" value="null" placeholder="Type event name">
+          </div> <!-- form-group end.// -->
+
+          <div class="form-group" id="rating-ability-wrapper">
+            <label class="control-label" for="rating">
+            <span class="field-label-header">Rate the food with stars</span><br>
+            <span class="field-label-info"></span>
+            <input type="hidden" id="selected_rating" name="selected_rating" value="" required="required">
+            </label>
+            <h2 class="bold rating-header" style="">
+            <span class="selected-rating">0</span><small> / 5</small>
+            </h2>
+            <button type="button" class="btnrating btn btn-default btn-lg" data-attr="1" id="rating-star-1">
+                <i class="fa fa-star" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="btnrating btn btn-default btn-lg" data-attr="2" id="rating-star-2">
+                <i class="fa fa-star" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="btnrating btn btn-default btn-lg" data-attr="3" id="rating-star-3">
+                <i class="fa fa-star" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="btnrating btn btn-default btn-lg" data-attr="4" id="rating-star-4">
+                <i class="fa fa-star" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="btnrating btn btn-default btn-lg" data-attr="5" id="rating-star-5">
+                <i class="fa fa-star" aria-hidden="true"></i>
+            </button>
+            <br>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary">
+            </div> <!-- form-group// -->      
+
+                                                  
+        </form>
+        </article> <!-- card-body end .// -->
+
+        <!--<div class="border-top card-body text-center"> footer of form </div>-->
+
+        </div> <!-- card.// -->
+      </div> <!-- col.//-->
+    </div> <!-- row.//-->
+</div> 
+<!--container end.//-->
+
+
+
+  </body>
+</html>

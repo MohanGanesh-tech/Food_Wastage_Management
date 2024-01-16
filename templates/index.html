@@ -1,0 +1,146 @@
+{% load static %}
+{% static "img" as baseUrl %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="{% static 'index.js'%}"></script>
+
+     <!-- Bootstrap CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+    
+    <script src="{% static 'vendor/jquery/jquery-1.11.1.min.js'%}"></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/font/font-awesome.css'%}">
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+    <title>Hello, world!</title>
+  
+
+        <!--
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        -->
+        <style>
+        .grafico {
+        min-width: 310px;
+        max-width: 400px;
+        height: 280px;
+        margin: 0 auto
+        }
+
+        .main-header {
+            font-size: x-large;
+            color : #888;
+            font-family: Verdana;
+            margin-bottom: 20px;
+        }
+
+        .destaque {
+            color: #888;
+            font-weight: bolder;
+        }
+
+        .highcharts-tooltip h3 {
+            margin: 0.3em 0;
+        }
+        </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+      
+    <div class="main-header"> <span class="destaque">Food Management</span></div>
+  </div>
+ 
+  <div class="card-deck">
+
+    <div class="card">
+      <a href="addfoodlistpage">
+      <div class="card-body">
+        <h5 class="card-title">Add New Food Item</h5>
+        <p class="card-text"></p>
+      </div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="addentrypage">
+      <div class="card-body">
+        <h5 class="card-title">Add New Food Record</h5>
+        <p class="card-text"></p>
+      </div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="foodstatus">
+      <div class="card-body">
+        <h5 class="card-title">Download Food Record</h5>
+        <p class="card-text"></p>
+      </div>
+      </a>
+    </div>
+
+    </div>   
+</div>
+
+<br>
+
+
+<div class="container">
+    
+   
+    <div class="card-deck">
+  
+      <div class="card">
+        <a href="rateyourfoodpage">
+        <div class="card-body">
+          <h5 class="card-title">Rate Your Food</h5>
+          <p class="card-text"></p>
+        </div>
+        </a>
+      </div>
+  
+      <div class="card">
+        <a href="reviewanalysis">
+        <div class="card-body">
+          <h5 class="card-title">Reviews</h5>
+          <p class="card-text"></p>
+        </div>
+        </a>
+      </div>
+  
+      <div class="card">
+        <a href="#">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text"></p>
+        </div>
+        </a>
+      </div>
+  
+      </div>   
+  </div>
+
+
+
+
+  
+<br>
+<br>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
